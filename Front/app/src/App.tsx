@@ -7,15 +7,15 @@ import { Box, Button, Container } from '@chakra-ui/react'
 import Header from '@/components/ui/main/header'
 import Main from '@/components/ui/main/main'
 function App() {
-const [count,setCount] = useState(1)
+const [update,setUpdate] = useState(false)
   return (
     <>
     <Container 
       w={'50vw'} 
       h='800px'
     >
-      <Header setCount={setCount} count ={count}/>
-      <Main count={count}/>
+      <Header setUpdate={setUpdate} update ={update}/>
+      <Main update={update}/>
     </Container>
      </>
   )
