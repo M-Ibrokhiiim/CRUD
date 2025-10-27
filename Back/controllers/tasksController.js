@@ -11,7 +11,7 @@ const _dirName = path.dirname(_fileName)
 // GET 
 export const allTasks = async(req,res)=>{
  const tasksPATH = JSON.parse( await fs.readFile(path.join(_dirName,'..','DATA','tasks.json'),'utf8'));
- res.status(201).send(tasksPATH)
+ res.status(200).send(tasksPATH)
 }
 
 // POST
@@ -24,8 +24,15 @@ export const addTASK = async(req,res,next)=>{
             const error = new Error('Sorry,task length must be bigger than 3 letters!');
             throw new Error(error)
         }
-
+        
         const tasksPATH = JSON.parse( await fs.readFile(path.join(_dirName,'..','DATA','tasks.json'),'utf8'));
+ 
+        const searchTask = tasksPATH.find(task=>task.task == incomingData)
+
+        if(searchTask !==undefined){
+            throw new Error('Task already exist!')
+        }
+        
         const newTask = {id:tasksPATH.length+1,task:incomingData}
 
         tasksPATH.push(newTask)
