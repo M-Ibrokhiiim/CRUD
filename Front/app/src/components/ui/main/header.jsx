@@ -1,5 +1,6 @@
 import { Box, Button, Container, Group, Heading, Input } from "@chakra-ui/react"
 import { useState } from "react"
+import {toast}from  'react-toastify';
 const Header = ({setUpdate,update})=>{
 
 const  [task,setTask] =useState('')
@@ -18,6 +19,9 @@ const  [task,setTask] =useState('')
         
          if(!response.ok){
            const error =await response.json()
+           toast(error.msg),{
+            position:"top-left"
+           }
            throw new Error(error.msg)
          }
         setTask('')
@@ -25,6 +29,7 @@ const  [task,setTask] =useState('')
         const success =await response.json();
         setUpdate(false)
       }catch(err){
+        toast(err)
         console.log(err)
       }
     }

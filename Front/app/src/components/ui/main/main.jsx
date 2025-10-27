@@ -58,11 +58,11 @@ const Main =({update})=>{
   },[update])
 
  return(
-    <Container as={'main'}   w={'35vw'}  ml={'150px'} display={'flex'} >
-     <Box   w={'35vw'} ml={'-32px'} h={'500px'} overflow={'scroll'}  >
+    <Container as={'main'}   w={'35vw'}  ml={'11.3vw'} display={'flex'} >
+     <Box   w={'40vw'} ml={'-32px'} h={'500px'} overflow={'scroll'}  >
        {tasks.map(task =>{
         return(
-          <Heading w={'23.2vw'} textAlign={'left'} mt={'10px'}   display={'flex'} justifyContent={'space-between'} key={task.id} >
+          <Heading w={'24.4vw'} textAlign={'left'} mt={'10px'}   display={'flex'} justifyContent={'space-between'} key={task.id} >
               <Text>{task.task}</Text>
               <Text onClick={()=>deleteItems(task.id)} cursor={'pointer'}>X</Text>       
           </Heading>
