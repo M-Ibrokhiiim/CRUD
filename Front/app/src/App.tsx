@@ -1,14 +1,22 @@
 import { useState } from 'react'
-
 import './App.css'
-import { Button } from '@chakra-ui/react'
+import { Box, Button, Container } from '@chakra-ui/react'
 
+
+// Components
+import Header from '@/components/ui/main/header'
+import Main from '@/components/ui/main/main'
 function App() {
-  const [count, setCount] = useState(0)
-
+const [update,setUpdate] = useState(false)
   return (
     <>
-    <Button>ASASAA</Button>
+    <Container 
+      w={'50vw'} 
+      h='800px'
+    >
+      <Header setUpdate={setUpdate} update ={update}/>
+      <Main update={update}/>
+    </Container>
      </>
   )
 }
