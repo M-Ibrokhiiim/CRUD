@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import dotenv from 'dotenv'
 import todoRouter from './routers/taskOperations.js'
 import ErrorHandler from './middleWare/errorHandler.js'
@@ -9,6 +10,7 @@ const app = express()
 dotenv.config()
 app.use(cors());
 
+app.use(cors({origin:"http://localhost:5173"}))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
  
