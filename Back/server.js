@@ -3,12 +3,11 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import todoRouter from './routers/taskOperations.js'
 import ErrorHandler from './middleWare/errorHandler.js'
-import cors from "cors";
+
 
 
 const app = express()
 dotenv.config()
-app.use(cors());
 
 app.use(cors({origin:"http://localhost:5173"}))
 app.use(express.json())
